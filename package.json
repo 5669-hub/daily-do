@@ -1,0 +1,24 @@
+{
+  "name": "daily-do",
+  "version": "1.0.0",
+  "description": "project for trial",
+  "homepage": "https://github.com/5669-hub/daily-do#readme",
+  "bugs": {
+    "url": "https://github.com/5669-hub/daily-do/issues"
+  },
+ 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5669-hub/daily-do.git"
+  },
+  "license": "ISC",
+ "author": "Arsema Nibret",
+"type": "commonjs",
+  "main": "webpack.config.js",
+  "scripts": {
+  
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve",
+    "build": "webpack"
+  }
+}
