@@ -1,9 +1,12 @@
 // Load saved data from browser storage
 const saved = localStorage.getItem("state");
 
-let state =saved ?JSON.parse(saved):
+ let state =//saved ?JSON.parse(saved):
 {
     todos:[],
+    planning: [],
+    journal: []
+    
 };
 const listeners =[];
 
