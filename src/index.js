@@ -1,8 +1,11 @@
 // Import CSS for styling
 import "./style/main.css";
 
+// Import app components
+import { renderTodosPage } from "./components/APP";
+
 // Import state management functions
-import { getState, setState, subscribe } from "./state/store";
+import { getState, setState } from "./state/store";
 setState({
   todos: [],
   planning: [],
@@ -27,28 +30,7 @@ function renderTodos() {
   const container = document.getElementById("todos-page");
   const { todos } = getState();
 
-  container.innerHTML = `
-    <h1>Todos</h1>
-    <input type="text" id="todo-input" placeholder="Add new task">
-    <button id="add">Add</button>
-    <ul>
-      ${todos.map(todo => `
-        <li>
-          <!-- Checkbox -->
-          <input type="checkbox" class="toggle" data-id="${todo.id}" ${todo.completed ? "checked" : ""}>
-          
-          <!-- Editable todo -->
-          ${todo.editing 
-            ? `<input class="edit-input" data-id="${todo.id}" value="${todo.text}">` 
-            : `<span class="${todo.completed ? "completed" : ""}" data-id="${todo.id}">${todo.text}</span>`}
-          
-          <!-- Delete button -->
-          <button class="delete" data-id="${todo.id}">X</button>
-        </li>
-      `).join("")}
-    </ul>
-    <button onclick="showPage('home-page')">Back</button>
-  `;
+  container.innerHTML = renderTodosPage(todos);
 
   // Auto-focus input when editing
   const editingInput = container.querySelector(".edit-input");
